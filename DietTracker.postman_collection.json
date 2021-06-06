@@ -62,7 +62,7 @@
 					}
 				},
 				"url": {
-					"raw": "https://bsp13051990-diet-attachments-dev.s3.ap-south-1.amazonaws.com/d032ca72-7877-4037-bc2f-0a82337a5853?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIAUKYJJPBE3ATDX5DI%2F20210605%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20210605T075420Z&X-Amz-Expires=300&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEHAaCmFwLXNvdXRoLTEiRzBFAiEAg2RmjU4IVsF%2Fi5lyERh8QPAzZcPB%2B83tYRWVd6ocI7sCIDX0NBJA3SGLGo9quBT8YITY9%2Bo7BB2ggqwRyutOSttHKqkCCCkQAhoMMjk3OTgyODUxMTQ1Igx3o9BHbpkm2sC1gTIqhgIBM%2BjH5BebrZZiAgfAbZimwvRAZmvRFsQvQxVmbzMvB86MpVlRIpCogFBRQhUy6BOCmxMmA9aMUhbFo9rBSj5AEoUMrbx1ZeNmsUe3LniO1s1qR2OAscbjV%2BlhaDlwNP91zbD84Ib6LSiR08Y5nE8FpFtYkB%2FhuyM174qN19CFPk6PuW9A0gYeJizD8D5YyZzHia2b4v1P60go6RyUiUD1KQkw6ARmFFIP5nxg%2B44JLytR8UGgDBkoovCLkfrSJZoe6JnQyHxee1%2FmKpp%2FXMnsHBGHn1NVFwUeKfX8OTXnP37KH6BdqQHCwvJyOb162Vlne8QNO0B9wooEbSoi4b7SwoYOrLLUMKvb7IUGOpoBVtKMQC7r3JShWmVk9uq%2F6DgjUMRH0KYvtCjezaj5SdjyiTDdYMv%2B1ULG8Rsuy4b17Aa2OAnCAdH23cC8YOsKrSbc8sZxy5XkURN920P%2BlXTMsLKWX22DMotDbjONffmzNBHZSkII2vE4nj%2F3jeM710%2FiVE9rsacnFsqr8phsu7uXnJ3AtfVIKSUsfxJe95T6Cp1ZtmT2MyuTEw%3D%3D&X-Amz-Signature=1267d62780ae66092e5333a989a33f00a3099fe20e89d986e9f67b1ef803a794&X-Amz-SignedHeaders=host",
+					"raw": "https://",
 					"protocol": "https",
 					"host": [
 						"bsp13051990-diet-attachments-dev",

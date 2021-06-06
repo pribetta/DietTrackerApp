@@ -1,0 +1,18 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "DietItemRequest",
+    "type": "object",
+    "properties": {
+      "items": {
+        "type": "string"
+      },
+      "calories": {
+      "type": "string"
+      }
+    },
+    "required": [
+    "items",
+    "calories"
+    ],
+    "additionalProperties": false
+  }

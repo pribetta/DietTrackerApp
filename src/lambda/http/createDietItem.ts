@@ -4,49 +4,23 @@ import { APIGatewayProxyEvent, APIGatewayProxyHandler, APIGatewayProxyResult } f
 
 import { createDietRequest } from '../../requests/createDietRequest'
 
-import { DietItem } from '../../models/DietItem'
-import * as AWS from 'aws-sdk'
-import { DocumentClient } from 'aws-sdk/clients/dynamodb'
-import * as uuid from 'uuid'
-import { parseUserId } from '../../auth/utils'
+import { createDietItem } from '../../businessLogic/diet'
 
-const bucketName = process.env.ATTACHMENTS_BUCKET
-const dietTable = process.env.DIETITEMS_TABLE
 
-const docClient: DocumentClient = new AWS.DynamoDB.DocumentClient()
-
-export const handler: APIGatewayProxyHandler = async (event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> => {
-    const newDietItem: createDietRequest = JSON.parse(event.body)
-    console.log("Create Diet request recieved: ", newDietItem);
-
-    const authHeader:string = event.headers['Authorization']
-    const words = authHeader.split(' ')
-    const token = words[1]
+export const handler: APIGatewayProxyHandler = async (event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> => {    
 
     try{
-        if((newDietItem.items=='')||(newDietItem.calories=='')){
-            throw new Error("Items cannot be empty");     
-        }
-        const userId = parseUserId(token)
-        const dietId = uuid.v4()
+        const newDietItem: createDietRequest = JSON.parse(event.body)
+        console.log("Create Diet request recieved: ", newDietItem);
 
-        const item: DietItem = {
-            userId: userId,
-            dietId: dietId,
-            createdAt: new Date().toISOString(),
-            items: newDietItem.items,
-            calories: parseInt(newDietItem.calories,10),
-            day: new Date().toISOString().slice(0,10),
-            attachmentUrl: `https://${bucketName}.s3.amazonaws.com/${dietId}`
-        }
-        console.log(JSON.stringify({
-            item:item
-        }));
+        const authHeader:string = event.headers['Authorization']
+        const words = authHeader.split(' ')
+        const token = words[1]
 
-        await docClient.put({
-            TableName: dietTable,
-            Item: item
-        }).promise()
+        if((newDietItem.items=='')||(newDietItem.calories==null)){
+            throw new Error("The fields Items and calories cannot be empty");     
+        }
+        const item = await createDietItem(newDietItem,token)
         console.log("Successfully created an item in the diet items table in dynamo db")
        
         return {

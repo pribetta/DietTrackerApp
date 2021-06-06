@@ -1,21 +1,14 @@
 import 'source-map-support/register'
-import * as AWS from 'aws-sdk'
 
 import { APIGatewayProxyEvent, APIGatewayProxyHandler, APIGatewayProxyResult } from 'aws-lambda'
+import { getuploadUrl } from '../../businessLogic/diet'
 
-const bucket = process.env.ATTACHMENTS_BUCKET
-const s3Client = new AWS.S3({
-    signatureVersion: 'v4'
-})
+
 
 export const handler: APIGatewayProxyHandler = async (event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> => {
-    const dietID = event.pathParameters.dietId
+    const dietId = event.pathParameters.dietId
     try{
-        const preSignedUrl = s3Client.getSignedUrl('putObject', {
-            Bucket: bucket,
-            Key: dietID,
-            Expires:300
-        })
+        const preSignedUrl = await getuploadUrl(dietId)
         return({
             statusCode: 200,
             headers: {

@@ -1,44 +1,23 @@
 import 'source-map-support/register'
 
 import { APIGatewayProxyEvent, APIGatewayProxyResult, APIGatewayProxyHandler } from 'aws-lambda'
-import * as AWS from 'aws-sdk'
-import { DocumentClient} from 'aws-sdk/clients/dynamodb'
-import { parseUserId } from '../../auth/utils';
 
-const docClient: DocumentClient = new AWS.DynamoDB.DocumentClient();
+import { deleteDietItem } from '../../businessLogic/diet';
 
-const dietTable= process.env.DIETITEMS_TABLE
-const dietIndex = process.env.DIET_INDEX
+
 
 export const handler: APIGatewayProxyHandler = async (event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> => {
-    const dietId: string = event.pathParameters.dietId
-    const authHeader:string = event.headers['Authorization']
-    const words = authHeader.split(' ')
-    const token = words[1]
-    const userId = parseUserId(token)
-    
+       
     try{
-        const res = await docClient.query({
-            TableName: dietTable,
-            IndexName: dietIndex,
-            KeyConditionExpression: 'userId = :userId and dietId = :dietId',
-            ExpressionAttributeValues: {
-                ':userId': userId,
-                ':dietId': dietId                
-            },
-            ScanIndexForward: true
-        }).promise()
+        const dietId: string = event.pathParameters.dietId
+        const authHeader:string = event.headers['Authorization']
+        const words = authHeader.split(' ')
+        const token = words[1]
 
-        if(res.Count<1)
-            throw new Error('No such item found in Diet Items table');
-        
-        await docClient.delete({
-            TableName: dietTable,
-            Key: {
-                userId: res.Items[0].userId,
-                createdAt: res.Items[0].createdAt
-            }
-        }).promise()
+        if((dietId==null)||(dietId==''))
+            throw new Error('diet ID needed to process request')
+
+        await deleteDietItem(token,dietId)
 
         return {
             statusCode: 200,

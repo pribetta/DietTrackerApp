@@ -1,0 +1,307 @@
+{
+	"info": {
+		"_postman_id": "69bce33c-8b80-45ec-9788-ff3337937e00",
+		"name": "DietTracker",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Attachment URL",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://{{APIEndpoint}}/dev/diet/7f4abff4-f618-4c9c-98b1-2fadeae64032/attachment",
+					"protocol": "https",
+					"host": [
+						"{{APIEndpoint}}"
+					],
+					"path": [
+						"dev",
+						"diet",
+						"7f4abff4-f618-4c9c-98b1-2fadeae64032",
+						"attachment"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Put Attachment",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlZuVTc2RGU5cnBYQkdVaU1vUDhyMyJ9.eyJpc3MiOiJodHRwczovL2Rldi1zaHJtcndjdS51cy5hdXRoMC5jb20vIiwic3ViIjoiZ29vZ2xlLW9hdXRoMnwxMTA3MzA4Mzc4MjkyNTQzMzkzMzciLCJhdWQiOiIzODFRMmpkNTJJTlRaNUNsV0NISm1hRnIwd29vNXFQcyIsImlhdCI6MTYyMjg3ODU1NiwiZXhwIjoxNjIyOTE0NTU2LCJhdF9oYXNoIjoidE9fRVRMM1M0TS1Lc1JQZFhCZXF0dyIsIm5vbmNlIjoiYUxiVXdDYmdsamhaVVRLVkouMEt4fjVUOUtoa3h5LjIifQ.Z3sV0CqdEfrFlpEh3uHKHfGtAIQvBcWSCd7p-v4XtMRh23bGqIOSFZMp4PgDVylgf4OmWHE8wiHk22zsaDNPoAAJ18gnpej9obuMIQCKZuh2fgH05Oo1zGrNjiGkP9xycZn8Vhw7LxTnH0tlCacMPCxrO0x9wDLl5A_-UnCdey6zP6Ovq1sPn4gA_kXzqZY8FpZFBTonVn74uPzVVHxEmdOf_DMTI1gISvMoztVTRrs1NOdtzh4LsMz7zE5n_YyFWYHH08cKPW7MBnMDGUWoMe16gU5D6Iw1PLuk-1EexSOMsELDSR6-BBf2b1podYQm-dxVpmyUgqOkRdDfU4EmaA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "file",
+					"file": {
+						"src": "/C:/Users/priya/Downloads/vegan chocolate.jpeg"
+					}
+				},
+				"url": {
+					"raw": "https://bsp13051990-diet-attachments-dev.s3.ap-south-1.amazonaws.com/d032ca72-7877-4037-bc2f-0a82337a5853?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIAUKYJJPBE3ATDX5DI%2F20210605%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20210605T075420Z&X-Amz-Expires=300&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEHAaCmFwLXNvdXRoLTEiRzBFAiEAg2RmjU4IVsF%2Fi5lyERh8QPAzZcPB%2B83tYRWVd6ocI7sCIDX0NBJA3SGLGo9quBT8YITY9%2Bo7BB2ggqwRyutOSttHKqkCCCkQAhoMMjk3OTgyODUxMTQ1Igx3o9BHbpkm2sC1gTIqhgIBM%2BjH5BebrZZiAgfAbZimwvRAZmvRFsQvQxVmbzMvB86MpVlRIpCogFBRQhUy6BOCmxMmA9aMUhbFo9rBSj5AEoUMrbx1ZeNmsUe3LniO1s1qR2OAscbjV%2BlhaDlwNP91zbD84Ib6LSiR08Y5nE8FpFtYkB%2FhuyM174qN19CFPk6PuW9A0gYeJizD8D5YyZzHia2b4v1P60go6RyUiUD1KQkw6ARmFFIP5nxg%2B44JLytR8UGgDBkoovCLkfrSJZoe6JnQyHxee1%2FmKpp%2FXMnsHBGHn1NVFwUeKfX8OTXnP37KH6BdqQHCwvJyOb162Vlne8QNO0B9wooEbSoi4b7SwoYOrLLUMKvb7IUGOpoBVtKMQC7r3JShWmVk9uq%2F6DgjUMRH0KYvtCjezaj5SdjyiTDdYMv%2B1ULG8Rsuy4b17Aa2OAnCAdH23cC8YOsKrSbc8sZxy5XkURN920P%2BlXTMsLKWX22DMotDbjONffmzNBHZSkII2vE4nj%2F3jeM710%2FiVE9rsacnFsqr8phsu7uXnJ3AtfVIKSUsfxJe95T6Cp1ZtmT2MyuTEw%3D%3D&X-Amz-Signature=1267d62780ae66092e5333a989a33f00a3099fe20e89d986e9f67b1ef803a794&X-Amz-SignedHeaders=host",
+					"protocol": "https",
+					"host": [
+						"bsp13051990-diet-attachments-dev",
+						"s3",
+						"ap-south-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"d032ca72-7877-4037-bc2f-0a82337a5853"
+					],
+					"query": [
+						{
+							"key": "X-Amz-Algorithm",
+							"value": "AWS4-HMAC-SHA256"
+						},
+						{
+							"key": "X-Amz-Credential",
+							"value": "ASIAUKYJJPBE3ATDX5DI%2F20210605%2Fap-south-1%2Fs3%2Faws4_request"
+						},
+						{
+							"key": "X-Amz-Date",
+							"value": "20210605T075420Z"
+						},
+						{
+							"key": "X-Amz-Expires",
+							"value": "300"
+						},
+						{
+							"key": "X-Amz-Security-Token",
+							"value": "IQoJb3JpZ2luX2VjEHAaCmFwLXNvdXRoLTEiRzBFAiEAg2RmjU4IVsF%2Fi5lyERh8QPAzZcPB%2B83tYRWVd6ocI7sCIDX0NBJA3SGLGo9quBT8YITY9%2Bo7BB2ggqwRyutOSttHKqkCCCkQAhoMMjk3OTgyODUxMTQ1Igx3o9BHbpkm2sC1gTIqhgIBM%2BjH5BebrZZiAgfAbZimwvRAZmvRFsQvQxVmbzMvB86MpVlRIpCogFBRQhUy6BOCmxMmA9aMUhbFo9rBSj5AEoUMrbx1ZeNmsUe3LniO1s1qR2OAscbjV%2BlhaDlwNP91zbD84Ib6LSiR08Y5nE8FpFtYkB%2FhuyM174qN19CFPk6PuW9A0gYeJizD8D5YyZzHia2b4v1P60go6RyUiUD1KQkw6ARmFFIP5nxg%2B44JLytR8UGgDBkoovCLkfrSJZoe6JnQyHxee1%2FmKpp%2FXMnsHBGHn1NVFwUeKfX8OTXnP37KH6BdqQHCwvJyOb162Vlne8QNO0B9wooEbSoi4b7SwoYOrLLUMKvb7IUGOpoBVtKMQC7r3JShWmVk9uq%2F6DgjUMRH0KYvtCjezaj5SdjyiTDdYMv%2B1ULG8Rsuy4b17Aa2OAnCAdH23cC8YOsKrSbc8sZxy5XkURN920P%2BlXTMsLKWX22DMotDbjONffmzNBHZSkII2vE4nj%2F3jeM710%2FiVE9rsacnFsqr8phsu7uXnJ3AtfVIKSUsfxJe95T6Cp1ZtmT2MyuTEw%3D%3D"
+						},
+						{
+							"key": "X-Amz-Signature",
+							"value": "1267d62780ae66092e5333a989a33f00a3099fe20e89d986e9f67b1ef803a794"
+						},
+						{
+							"key": "X-Amz-SignedHeaders",
+							"value": "host"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Items",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{APIEndpoint}}/dev/diet",
+					"protocol": "https",
+					"host": [
+						"{{APIEndpoint}}"
+					],
+					"path": [
+						"dev",
+						"diet"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Diet Item",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"items\": \"bisibelebath\",\r\n    \"calories\": \"223\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{APIEndpoint}}/dev/diet",
+					"protocol": "https",
+					"host": [
+						"{{APIEndpoint}}"
+					],
+					"path": [
+						"dev",
+						"diet"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Diet Item",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"items\": \"pulao\",\r\n    \"calories\": \"243\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{APIEndpoint}}/dev/diet/7c523d63-20ca-4bfa-9d22-50d391f0b508",
+					"protocol": "https",
+					"host": [
+						"{{APIEndpoint}}"
+					],
+					"path": [
+						"dev",
+						"diet",
+						"7c523d63-20ca-4bfa-9d22-50d391f0b508"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Diet Item",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://{{APIEndpoint}}/dev/diet/7c523d63-20ca-4bfa-9d22-50d391f0b508",
+					"protocol": "https",
+					"host": [
+						"{{APIEndpoint}}"
+					],
+					"path": [
+						"dev",
+						"diet",
+						"7c523d63-20ca-4bfa-9d22-50d391f0b508"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Single Item",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{APIEndpoint}}/dev/diet/7f4abff4-f618-4c9c-98b1-2fadeae64032",
+					"protocol": "https",
+					"host": [
+						"{{APIEndpoint}}"
+					],
+					"path": [
+						"dev",
+						"diet",
+						"7f4abff4-f618-4c9c-98b1-2fadeae64032"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer"
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "APIEndpoint",
+			"value": "1zqbfaumqk.execute-api.ap-south-1.amazonaws.com"
+		}
+	]
+}

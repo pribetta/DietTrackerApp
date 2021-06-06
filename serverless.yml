@@ -14,8 +14,9 @@ provider:
 
   environment:
     DIETITEMS_TABLE: DietItems-${self:provider.stage}
-    ATTACHMENTS_BUCKET: bsp90-0513-diet-attachments-${self:provider.stage}
+    ATTACHMENTS_BUCKET: bsp9005-13-diet-attachments-${self:provider.stage}
     DIET_INDEX: DietItemsIndex-${self:provider.stage}
+    ALLITEMS_INDEX: DietAllItemsIndex-${self:provider.stage}
 
 functions:
 
@@ -42,6 +43,11 @@ functions:
           - dynamodb:GetItem
           - dynamodb:Query
         Resource: arn:aws:dynamodb:${self:provider.region}:*:table/${self:provider.environment.DIETITEMS_TABLE}/index/${self:provider.environment.DIET_INDEX}
+      - Effect: Allow
+        Action: 
+          - dynamodb:GetItem
+          - dynamodb:Query
+        Resource: arn:aws:dynamodb:${self:provider.region}:*:table/${self:provider.environment.DIETITEMS_TABLE}/index/${self:provider.environment.ALLITEMS_INDEX}
   
   GetItem:
     handler: src/lambda/http/getItem.handler
@@ -165,6 +171,8 @@ resources:
             AttributeType: S
           - AttributeName: dietId
             AttributeType: S
+          - AttributeName: day
+            AttributeType: S
         KeySchema:
           - AttributeName: userId
             KeyType: HASH
@@ -176,6 +184,15 @@ resources:
               - AttributeName: userId
                 KeyType: HASH
               - AttributeName: dietId
+                KeyType: RANGE
+            Projection:
+              ProjectionType: ALL
+        LocalSecondaryIndexes:
+          - IndexName: ${self:provider.environment.ALLITEMS_INDEX}
+            KeySchema:
+              - AttributeName: userId
+                KeyType: HASH
+              - AttributeName: day
                 KeyType: RANGE
             Projection:
               ProjectionType: ALL
